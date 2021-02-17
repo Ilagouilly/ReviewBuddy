@@ -36,7 +36,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_qKSlMnEQEeuSvYMYUqH4dQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_qKSlMXEQEeuSvYMYUqH4dQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:EndEvent" xmi:id="_qrdYkHEQEeuSvYMYUqH4dQ" name="End1" incoming="_qrspIHEQEeuSvYMYUqH4dQ">
+        <elements xmi:type="process:EndEvent" xmi:id="_qrdYkHEQEeuSvYMYUqH4dQ" name="End employee reminder" incoming="_qrspIHEQEeuSvYMYUqH4dQ">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_qrdYknEQEeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_qrdYkXEQEeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_qrdYk3EQEeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
@@ -100,7 +100,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_-qG4UnEQEeuSvYMYUqH4dQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_-qG4UXEQEeuSvYMYUqH4dQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:EndEvent" xmi:id="_CU5IAHEREeuSvYMYUqH4dQ" name="End2" incoming="_CVDgEHEREeuSvYMYUqH4dQ">
+        <elements xmi:type="process:EndEvent" xmi:id="_CU5IAHEREeuSvYMYUqH4dQ" name="End managerreminder" incoming="_CVDgEHEREeuSvYMYUqH4dQ">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_CU5vEXEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_CU5vEHEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_CU5vEnEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
@@ -150,7 +150,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_x5jOlXEeEeuSvYMYUqH4dQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_x5jOlHEeEeuSvYMYUqH4dQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:EndEvent" xmi:id="_SmpW4HEfEeuSvYMYUqH4dQ" name="End4" incoming="_Smu2cHEfEeuSvYMYUqH4dQ">
+        <elements xmi:type="process:EndEvent" xmi:id="_SmpW4HEfEeuSvYMYUqH4dQ" name="End" incoming="_Smu2cHEfEeuSvYMYUqH4dQ">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_Smp98XEfEeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_Smp98HEfEeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_Smp98nEfEeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
@@ -179,7 +179,7 @@
           <contract xmi:type="process:Contract" xmi:id="_YBB89XEUEeuSvYMYUqH4dQ"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_YBB8-HEUEeuSvYMYUqH4dQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:EndTerminatedEvent" xmi:id="_UW1CcHEcEeuSvYMYUqH4dQ" name="End3" incoming="_maZ1QHEfEeuSvYMYUqH4dQ">
+        <elements xmi:type="process:EndTerminatedEvent" xmi:id="_UW1CcHEcEeuSvYMYUqH4dQ" name="End Review Process" incoming="_maZ1QHEfEeuSvYMYUqH4dQ">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_UW1pgXEcEeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_UW1pgHEcEeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_UW1pgnEcEeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
