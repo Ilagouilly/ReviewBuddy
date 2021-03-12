@@ -1000,8 +1000,8 @@
           <connectors xmi:type="process:Connector" xmi:id="_UTpmcIAhEeu247mbPHrFCw" name="generateReviewSummaryDOC" definitionId="document-templating" event="ON_ENTER" definitionVersion="1.0.1">
             <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_UTpmcYAhEeu247mbPHrFCw" definitionId="document-templating" version="1.0.1" modelVersion="7.12.0-004">
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_UTpmcoAhEeu247mbPHrFCw" key="documentInput">
-                <expression xmi:type="expression:Expression" xmi:id="_UTpmc4AhEeu247mbPHrFCw" name="reviewDOC" content="reviewDOC" type="DOCUMENT_REF_TYPE" returnTypeFixed="true">
-                  <referencedElements xmi:type="process:Document" xmi:id="_ckArAIJOEeuRFIh07fFBfA" name="reviewDOC"/>
+                <expression xmi:type="expression:Expression" xmi:id="_UTpmc4AhEeu247mbPHrFCw" name="reviewDocument" content="reviewDocument" type="DOCUMENT_REF_TYPE" returnTypeFixed="true">
+                  <referencedElements xmi:type="process:Document" xmi:id="_g-uTMINIEeuxf7ql8zKXWg" name="reviewDocument"/>
                 </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_UTpmdYAhEeu247mbPHrFCw" key="replacements">
@@ -1063,13 +1063,39 @@
               </parameters>
             </configuration>
             <outputs xmi:type="expression:Operation" xmi:id="_UTpmfYAhEeu247mbPHrFCw">
-              <leftOperand xmi:type="expression:Expression" xmi:id="_UTpmfoAhEeu247mbPHrFCw" name="reviewDOC" content="reviewDOC" type="DOCUMENT_REF_TYPE">
-                <referencedElements xmi:type="process:Document" xmi:id="_ckBSEIJOEeuRFIh07fFBfA" name="reviewDOC"/>
+              <leftOperand xmi:type="expression:Expression" xmi:id="_UTpmfoAhEeu247mbPHrFCw" name="reviewDocument" content="reviewDocument" type="DOCUMENT_REF_TYPE">
+                <referencedElements xmi:type="process:Document" xmi:id="_g-u6QINIEeuxf7ql8zKXWg" name="reviewDocument"/>
               </leftOperand>
               <rightOperand xmi:type="expression:Expression" xmi:id="_UTpmgIAhEeu247mbPHrFCw" name="document" content="document" type="CONNECTOR_OUTPUT_TYPE" returnType="org.bonitasoft.engine.bpm.document.DocumentValue">
                 <referencedElements xmi:type="definition:Output" xmi:id="_UTpmgYAhEeu247mbPHrFCw" name="document" type="org.bonitasoft.engine.bpm.document.DocumentValue"/>
               </rightOperand>
               <operator xmi:type="expression:Operator" xmi:id="_UTpmgoAhEeu247mbPHrFCw" type="DOCUMENT_CREATE_UPDATE"/>
+            </outputs>
+          </connectors>
+          <connectors xmi:type="process:Connector" xmi:id="_JzOPMINDEeuxf7ql8zKXWg" name="generateReviewSummaryPDF" definitionId="document-converter" event="ON_ENTER" definitionVersion="1.0.2">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_JzOPMYNDEeuxf7ql8zKXWg" definitionId="document-converter" version="1.0.2" modelVersion="7.12.0-004">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_JzOPMoNDEeuxf7ql8zKXWg" key="sourceDocument">
+                <expression xmi:type="expression:Expression" xmi:id="_JzOPM4NDEeuxf7ql8zKXWg" name="reviewDocument" content="reviewDocument" type="DOCUMENT_REF_TYPE" returnTypeFixed="true">
+                  <referencedElements xmi:type="process:Document" xmi:id="_i7TUoINIEeuxf7ql8zKXWg" name="reviewDocument"/>
+                </expression>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_JzOPNYNDEeuxf7ql8zKXWg" key="encoding">
+                <expression xmi:type="expression:Expression" xmi:id="_JzOPNoNDEeuxf7ql8zKXWg" name="windows-1252" content="windows-1252" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_JzOPN4NDEeuxf7ql8zKXWg" key="outputFileName">
+                <expression xmi:type="expression:Expression" xmi:id="_JzOPOINDEeuxf7ql8zKXWg" name="outputFileName()" content="return &quot;ReviewSummary&quot;.concat(employeeReview.getEmployeesFullName().replaceAll(&quot;\\s+&quot;,&quot;&quot;)).concat(&quot;.pdf&quot;);" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_PZ6K4INDEeuxf7ql8zKXWg" name="employeeReview" dataType="_Hw2AFHD8EeugvpppLMSnYA" className="com.company.model.Review"/>
+                </expression>
+              </parameters>
+            </configuration>
+            <outputs xmi:type="expression:Operation" xmi:id="_JzOPOYNDEeuxf7ql8zKXWg">
+              <leftOperand xmi:type="expression:Expression" xmi:id="_JzOPOoNDEeuxf7ql8zKXWg" name="reviewDocument" content="reviewDocument" type="DOCUMENT_REF_TYPE">
+                <referencedElements xmi:type="process:Document" xmi:id="_i7TUoYNIEeuxf7ql8zKXWg" name="reviewDocument"/>
+              </leftOperand>
+              <rightOperand xmi:type="expression:Expression" xmi:id="_JzOPPINDEeuxf7ql8zKXWg" name="outputDocumentValue" content="outputDocumentValue" type="CONNECTOR_OUTPUT_TYPE" returnType="org.bonitasoft.engine.bpm.document.DocumentValue">
+                <referencedElements xmi:type="definition:Output" xmi:id="_JzOPPYNDEeuxf7ql8zKXWg" name="outputDocumentValue" type="org.bonitasoft.engine.bpm.document.DocumentValue"/>
+              </rightOperand>
+              <operator xmi:type="expression:Operator" xmi:id="_JzOPPoNDEeuxf7ql8zKXWg" type="DOCUMENT_CREATE_UPDATE"/>
             </outputs>
           </connectors>
           <connectors xmi:type="process:Connector" xmi:id="_rImCoHbFEeu6pOaWgrSVcw" name="emailReviewsSummary" definitionId="email" event="ON_ENTER" throwErrorEvent="true" namedError="reviewEmailNotificationError" definitionVersion="1.2.0">
@@ -1138,8 +1164,8 @@
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_rImCynbFEeu6pOaWgrSVcw" key="attachments">
                 <expression xmi:type="expression:ListExpression" xmi:id="_rImCy3bFEeu6pOaWgrSVcw">
-                  <expressions xmi:type="expression:Expression" xmi:id="_6qoKYIJ8EeuRFIh07fFBfA" name="reviewDOC" content="reviewDOC" interpreter="GROOVY" type="DOCUMENT_REF_TYPE">
-                    <referencedElements xmi:type="process:Document" xmi:id="_a_jN0IJ-EeuRFIh07fFBfA" name="reviewDOC"/>
+                  <expressions xmi:type="expression:Expression" xmi:id="_Px_E8INJEeuxf7ql8zKXWg" name="reviewDocument" content="reviewDocument" type="DOCUMENT_REF_TYPE">
+                    <referencedElements xmi:type="process:Document" xmi:id="_Px_E8YNJEeuxf7ql8zKXWg" name="reviewDocument"/>
                   </expressions>
                 </expression>
               </parameters>
@@ -1289,15 +1315,10 @@
       <parameters xmi:type="parameter:Parameter" xmi:id="_MfeCoHEyEeu6FtDbRFF2SA" name="portHost" typeClassname="java.lang.Integer"/>
       <parameters xmi:type="parameter:Parameter" xmi:id="_RDqmkHEyEeu6FtDbRFF2SA" name="noreplyEmail" typeClassname="java.lang.String"/>
       <contract xmi:type="process:Contract" xmi:id="_Hw1__HD8EeugvpppLMSnYA"/>
-      <documents xmi:type="process:Document" xmi:id="_WIbusIJOEeuRFIh07fFBfA" name="reviewDOC" defaultValueIdOfDocumentStore="Review.docx" documentType="INTERNAL">
-        <mimeType xmi:type="expression:Expression" xmi:id="_WIbusYJOEeuRFIh07fFBfA" name="" content="" returnTypeFixed="true"/>
-        <url xmi:type="expression:Expression" xmi:id="_WIbusoJOEeuRFIh07fFBfA" name="" content="" returnTypeFixed="true"/>
-        <initialMultipleContent xmi:type="expression:Expression" xmi:id="_WIbus4JOEeuRFIh07fFBfA" name="" content="" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List" returnTypeFixed="true"/>
-      </documents>
-      <documents xmi:type="process:Document" xmi:id="_weT90IJwEeuRFIh07fFBfA" name="reviewPDF">
-        <mimeType xmi:type="expression:Expression" xmi:id="_weT90YJwEeuRFIh07fFBfA" name="" content="" returnTypeFixed="true"/>
-        <url xmi:type="expression:Expression" xmi:id="_weT90oJwEeuRFIh07fFBfA" name="" content="" returnTypeFixed="true"/>
-        <initialMultipleContent xmi:type="expression:Expression" xmi:id="_weT904JwEeuRFIh07fFBfA" name="" content="" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List" returnTypeFixed="true"/>
+      <documents xmi:type="process:Document" xmi:id="_eT650INIEeuxf7ql8zKXWg" name="reviewDocument" defaultValueIdOfDocumentStore="ReviewDocument.docx" documentType="INTERNAL">
+        <mimeType xmi:type="expression:Expression" xmi:id="_eT650YNIEeuxf7ql8zKXWg" name="" content="" returnTypeFixed="true"/>
+        <url xmi:type="expression:Expression" xmi:id="_eT650oNIEeuxf7ql8zKXWg" name="" content="" returnTypeFixed="true"/>
+        <initialMultipleContent xmi:type="expression:Expression" xmi:id="_eT6504NIEeuxf7ql8zKXWg" name="" content="" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List" returnTypeFixed="true"/>
       </documents>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_Hw1__XD8EeugvpppLMSnYA">
         <name xmi:type="expression:Expression" xmi:id="_Hw1__nD8EeugvpppLMSnYA" content="" returnTypeFixed="true"/>
@@ -1644,7 +1665,7 @@
                 </children>
                 <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a5WoIX39Eeut1J3lULecFQ" x="51" y="76"/>
               </children>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XcCZgXEUEeuSvYMYUqH4dQ" x="1057" y="131" width="171" height="84"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XcCZgXEUEeuSvYMYUqH4dQ" x="1057" y="122" width="171" height="84"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_8lscQH0TEeuYmZ3jF76ANA" type="3003" element="_8lqnEH0TEeuYmZ3jF76ANA" fontName="Segoe UI">
               <children xmi:type="notation:DecorationNode" xmi:id="_8ltDUH0TEeuYmZ3jF76ANA" type="5025">
@@ -1654,7 +1675,7 @@
             </children>
             <children xmi:type="notation:Shape" xmi:id="_E7KF0H0pEeuPLbVlcs4JBg" type="3027" element="_E7HpkH0pEeuPLbVlcs4JBg" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_E7Ks4H0pEeuPLbVlcs4JBg" type="5017"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E7KF0X0pEeuPLbVlcs4JBg" x="1078" y="265" width="129" height="63"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E7KF0X0pEeuPLbVlcs4JBg" x="1078" y="261" width="129" height="63"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_OXAbkXD8EeugvpppLMSnYA"/>
@@ -1915,8 +1936,8 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_PybSoYBQEeuy391WD8wb8g" x="-35" y="14"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_PyarkYBQEeuy391WD8wb8g" fontName="Segoe UI"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PyarkoBQEeuy391WD8wb8g" points="[-1, 44, 583, -181]$[-1, 90, 583, -135]$[-571, 90, 13, -135]$[-571, 222, 13, -3]"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_u8UJAIGTEeuRAM6ho8e4zQ" id="(0.034482758620689655,0.10344827586206896)"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PyarkoBQEeuy391WD8wb8g" points="[-2, 44, 553, -185]$[-2, 91, 553, -138]$[-552, 91, 3, -138]$[-552, 223, 3, -6]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_u8UJAIGTEeuRAM6ho8e4zQ" id="(0.4482758620689655,0.20689655172413793)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_XIE_oIBSEeuy391WD8wb8g" type="4001" element="_XIDKcIBSEeuy391WD8wb8g" source="_SwVjUYBSEeuy391WD8wb8g" target="_-02f0HD8EeugvpppLMSnYA" roundedBendpointsRadius="10" routing="Rectilinear">
       <children xmi:type="notation:DecorationNode" xmi:id="_XIE_o4BSEeuy391WD8wb8g" type="6001">
