@@ -124,12 +124,12 @@
           <completionCondition xmi:type="expression:Expression" xmi:id="_4WOqBnEREeuSvYMYUqH4dQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <BoundaryIntermediateEvents xmi:type="process:NonInterruptingBoundaryTimerEvent" xmi:id="_u_2-cITDEeuce6eRpDTnMw" name="Deadline's reminder E (1j)" outgoing="_w1ZjwITDEeuce6eRpDTnMw">
             <condition xmi:type="expression:Expression" xmi:id="_4o7KcITDEeuce6eRpDTnMw" name="getDeadlineMinusOneDay()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;long one = 1L;&#xD;&#xA;long oneThousand = 1000L;&#xD;&#xA;long intervalToDeadline = 0L;&#xD;&#xA;long maxValue = 155520000000L;&#xD;&#xA;&#xD;&#xA;Calendar calendarDeadline = GregorianCalendar.getInstance();&#xD;&#xA;Calendar calendarnow = GregorianCalendar.getInstance();&#xD;&#xA;Integer y, m, d;&#xD;&#xA;&#xD;&#xA;y = reviewHRDAO.findLatestReviewHR().reviewEndDate.year;&#xD;&#xA;m = reviewHRDAO.findLatestReviewHR().reviewEndDate.monthValue;&#xD;&#xA;d = reviewHRDAO.findLatestReviewHR().reviewEndDate.dayOfMonth;&#xD;&#xA;&#xD;&#xA;LocalDateTime deadline = LocalDateTime.of(y, m, d, 0, 0).minusDays(one);&#xD;&#xA;LocalDateTime currentTime = LocalDateTime.now();&#xD;&#xA;&#xD;&#xA;intervalToDeadline = java.time.Duration.between(currentTime, deadline).getSeconds().longValue();&#xD;&#xA;&#xD;&#xA;if(intervalToDeadline >= one) {&#xD;&#xA;&#x9;return (long) intervalToDeadline*oneThousand;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return maxValue;&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_9JdWYITDEeuce6eRpDTnMw" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_Vm2jMIWREeuYvrhQtGJTIg" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
             </condition>
           </BoundaryIntermediateEvents>
           <BoundaryIntermediateEvents xmi:type="process:NonInterruptingBoundaryTimerEvent" xmi:id="_xsj1QITDEeuce6eRpDTnMw" name="Deadline's reminder E (3j)" outgoing="_zkXEYITDEeuce6eRpDTnMw">
             <condition xmi:type="expression:Expression" xmi:id="_E55M0ITEEeuce6eRpDTnMw" name="getDeadlineMinusThreeDays()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;long one = 1L;&#xD;&#xA;long three = 3L;&#xD;&#xA;long oneThousand = 1000L;&#xD;&#xA;long intervalToDeadline = 0L;&#xD;&#xA;long maxValue = 155520000000L;&#xD;&#xA;&#xD;&#xA;Calendar calendarDeadline = GregorianCalendar.getInstance();&#xD;&#xA;Calendar calendarnow = GregorianCalendar.getInstance();&#xD;&#xA;Integer y, m, d;&#xD;&#xA;&#xD;&#xA;y = reviewHRDAO.findLatestReviewHR().reviewEndDate.year;&#xD;&#xA;m = reviewHRDAO.findLatestReviewHR().reviewEndDate.monthValue;&#xD;&#xA;d = reviewHRDAO.findLatestReviewHR().reviewEndDate.dayOfMonth;&#xD;&#xA;&#xD;&#xA;LocalDateTime deadline = LocalDateTime.of(y, m, d, 0, 0).minusDays(three);&#xD;&#xA;LocalDateTime currentTime = LocalDateTime.now();&#xD;&#xA;&#xD;&#xA;intervalToDeadline = java.time.Duration.between(currentTime, deadline).getSeconds().longValue();&#xD;&#xA;&#xD;&#xA;if(intervalToDeadline >= one) {&#xD;&#xA;&#x9;return (long) intervalToDeadline*oneThousand;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return maxValue;&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_JGRGoITEEeuce6eRpDTnMw" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_XMbZ4IWREeuYvrhQtGJTIg" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
             </condition>
           </BoundaryIntermediateEvents>
           <formMapping xmi:type="process:FormMapping" xmi:id="_W0cOBHEUEeuSvYMYUqH4dQ">
@@ -319,16 +319,16 @@
           <completionCondition xmi:type="expression:Expression" xmi:id="_SRnnAIBSEeuy391WD8wb8g" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <BoundaryIntermediateEvents xmi:type="process:NonInterruptingBoundaryTimerEvent" xmi:id="_EDW4UITCEeuce6eRpDTnMw" name="Draft reminder E (3j)" outgoing="_EnF3gITCEeuce6eRpDTnMw">
             <condition xmi:type="expression:Expression" xmi:id="_KR6FQITCEeuce6eRpDTnMw" name="getDeadlineMinusThreeDays()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;long oneSecond = 1L;&#xD;&#xA;long threeDays = 3L;&#xD;&#xA;long oneThousand = 1000L;&#xD;&#xA;long intervalToDeadline = 0L;&#xD;&#xA;long maxValue = 155520000000L;&#xD;&#xA;&#xD;&#xA;Calendar calendarDeadline = GregorianCalendar.getInstance();&#xD;&#xA;Calendar calendarnow = GregorianCalendar.getInstance();&#xD;&#xA;Integer y, m, d;&#xD;&#xA;&#xD;&#xA;y= reviewHRDAO.findLatestReviewHR().reviewEndDate.year;&#xD;&#xA;m=reviewHRDAO.findLatestReviewHR().reviewEndDate.monthValue;&#xD;&#xA;d=reviewHRDAO.findLatestReviewHR().reviewEndDate.dayOfMonth;&#xD;&#xA;&#xD;&#xA;LocalDateTime deadline = LocalDateTime.of(y, m, d, 0, 0).minusDays(threeDays);&#xD;&#xA;LocalDateTime currentTime = LocalDateTime.now();&#xD;&#xA;intervalToDeadline = java.time.Duration.between(currentTime, deadline).getSeconds().longValue();&#xD;&#xA;&#xD;&#xA;if(intervalToDeadline >= oneSecond) {&#xD;&#xA;&#x9;return (long) intervalToDeadline*oneThousand;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return maxValue;&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_QXgKgITCEeuce6eRpDTnMw" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_OnOqMIWHEeuYvrhQtGJTIg" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
             </condition>
           </BoundaryIntermediateEvents>
           <BoundaryIntermediateEvents xmi:type="process:NonInterruptingBoundaryTimerEvent" xmi:id="_FQ-iAITCEeuce6eRpDTnMw" name="Draftreminder E (7j)" outgoing="_G83cEITCEeuce6eRpDTnMw">
             <condition xmi:type="expression:Expression" xmi:id="_X6bJYITCEeuce6eRpDTnMw" name="getDeadlineMinusSevenDays()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;long oneSecond = 1L;&#xD;&#xA;long sevenDays = 7L;&#xD;&#xA;long oneThousand = 1000L;&#xD;&#xA;long intervalToDeadline = 0L;&#xD;&#xA;long maxValue = 155520000000L;&#xD;&#xA;&#xD;&#xA;Calendar calendarDeadline = GregorianCalendar.getInstance();&#xD;&#xA;Calendar calendarnow = GregorianCalendar.getInstance();&#xD;&#xA;Integer y, m, d;&#xD;&#xA;&#xD;&#xA;y= reviewHRDAO.findLatestReviewHR().reviewEndDate.year;&#xD;&#xA;m=reviewHRDAO.findLatestReviewHR().reviewEndDate.monthValue;&#xD;&#xA;d=reviewHRDAO.findLatestReviewHR().reviewEndDate.dayOfMonth;&#xD;&#xA;&#xD;&#xA;LocalDateTime deadline = LocalDateTime.of(y, m, d, 0, 0).minusDays(sevenDays);&#xD;&#xA;LocalDateTime currentTime = LocalDateTime.now();&#xD;&#xA;intervalToDeadline = java.time.Duration.between(currentTime, deadline).getSeconds().longValue();&#xD;&#xA;&#xD;&#xA;if(intervalToDeadline >= oneSecond) {&#xD;&#xA;&#x9;return (long) intervalToDeadline*oneThousand;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return maxValue;&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_dLbwAITCEeuce6eRpDTnMw" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_R88o0IWHEeuYvrhQtGJTIg" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
             </condition>
           </BoundaryIntermediateEvents>
           <formMapping xmi:type="process:FormMapping" xmi:id="_SwU8SYBSEeuy391WD8wb8g">
-            <targetForm xmi:type="expression:Expression" xmi:id="_s78UkIBSEeuy391WD8wb8g" name="EmployeeReviewForm" content="52837314-168f-481c-8d56-e38325811461" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_s78UkIBSEeuy391WD8wb8g" name="DraftReviewForm" content="52837314-168f-481c-8d56-e38325811461" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_SwU8SIBSEeuy391WD8wb8g">
             <inputs xmi:type="process:ContractInput" xmi:id="_IAF8IIC7Eeuicfja2BPlXg" name="employeeReviewInput" type="COMPLEX" dataReference="employeeReview" createMode="false">
@@ -414,16 +414,16 @@
                 <expression xmi:type="expression:Expression" xmi:id="_joMnjX0UEeuYmZ3jF76ANA" content="" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_joMnjn0UEeuYmZ3jF76ANA" key="subject">
-                <expression xmi:type="expression:Expression" xmi:id="_joMnj30UEeuYmZ3jF76ANA" name="Review Deadline Notification" content="Review Deadline Notification" returnTypeFixed="true"/>
+                <expression xmi:type="expression:Expression" xmi:id="_joMnj30UEeuYmZ3jF76ANA" name="Review Deadline Notification E" content="Review Deadline Notification E" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_joMnkH0UEeuYmZ3jF76ANA" key="html">
                 <expression xmi:type="expression:Expression" xmi:id="_joMnkX0UEeuYmZ3jF76ANA" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_joMnkn0UEeuYmZ3jF76ANA" key="message">
-                <expression xmi:type="expression:Expression" xmi:id="_joMnk30UEeuYmZ3jF76ANA" name="&lt;pattern-expression>" content="&lt;p>Hello,&lt;/p>&#xA;&#xA;&lt;p>You have a pending Review to submit, could you please access your task list before the &lt;strong>${employeeReview.getReviewHR().getReviewEndDate().toString()}&lt;/strong>&lt;/p>&#xA;&#xA;&lt;p>Kind regards,&lt;/p>&#xA;" type="TYPE_PATTERN" returnTypeFixed="true">
-                  <referencedElements xmi:type="expression:Expression" xmi:id="_yzfUQH81EeucsPDVWDOFKg" name="employeeReview.getReviewHR().getReviewEndDate().toString()" content="employeeReview.getReviewHR().getReviewEndDate().toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-                    <referencedElements xmi:type="expression:Expression" xmi:id="_yzfUQX81EeucsPDVWDOFKg" name="employeeReview" content="employeeReview" type="TYPE_VARIABLE" returnType="com.company.model.Review">
-                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_yzfUQn81EeucsPDVWDOFKg" name="employeeReview" dataType="_Hw2AFHD8EeugvpppLMSnYA" className="com.company.model.Review"/>
+                <expression xmi:type="expression:Expression" xmi:id="_joMnk30UEeuYmZ3jF76ANA" name="&lt;pattern-expression>" content="&lt;p>Hello,&lt;/p>&#xA;&#xA;&lt;p>&amp;nbsp;&lt;/p>&#xA;&#xA;&lt;p>&amp;nbsp;&#xA;&lt;p>You have a pending Review to submit, could you please access your task list before the &lt;strong>${employeeReview.getReviewHR().getReviewEndDate().toString()}&lt;/strong>?&lt;/p>&#xA;&lt;/p>&#xA;&#xA;&lt;p>&amp;nbsp;&lt;/p>&#xA;&#xA;&lt;p>&amp;nbsp;&lt;/p>&#xA;&#xA;&lt;p>&amp;nbsp;&#xA;&lt;p>Kind regards,&lt;/p>&#xA;&lt;/p>&#xA;&#xA;&lt;p>&amp;nbsp;&lt;/p>&#xA;" type="TYPE_PATTERN" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_p-j80IWJEeuYvrhQtGJTIg" name="employeeReview.getReviewHR().getReviewEndDate().toString()" content="employeeReview.getReviewHR().getReviewEndDate().toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_p-j80YWJEeuYvrhQtGJTIg" name="employeeReview" content="employeeReview" type="TYPE_VARIABLE" returnType="com.company.model.Review">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_p-j80oWJEeuYvrhQtGJTIg" name="employeeReview" dataType="_Hw2AFHD8EeugvpppLMSnYA" className="com.company.model.Review"/>
                     </referencedElements>
                   </referencedElements>
                 </expression>
@@ -505,13 +505,19 @@
                 <expression xmi:type="expression:Expression" xmi:id="_9PkRnoTbEeuce6eRpDTnMw" content="" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_9PkRn4TbEeuce6eRpDTnMw" key="subject">
-                <expression xmi:type="expression:Expression" xmi:id="_9Pk4kITbEeuce6eRpDTnMw" name="Review Reminder (7j)" content="Review Reminder (7j)" returnTypeFixed="true"/>
+                <expression xmi:type="expression:Expression" xmi:id="_9Pk4kITbEeuce6eRpDTnMw" name="Review Draft Submission Reminder" content="Review Draft Submission Reminder" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_9Pk4kYTbEeuce6eRpDTnMw" key="html">
                 <expression xmi:type="expression:Expression" xmi:id="_9Pk4koTbEeuce6eRpDTnMw" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_9Pk4k4TbEeuce6eRpDTnMw" key="message">
-                <expression xmi:type="expression:Expression" xmi:id="_9Pk4lITbEeuce6eRpDTnMw" name="&lt;pattern-expression>" content="You have a pending Review to submit, could you please access your task list." type="TYPE_PATTERN" returnTypeFixed="true"/>
+                <expression xmi:type="expression:Expression" xmi:id="_9Pk4lITbEeuce6eRpDTnMw" name="&lt;pattern-expression>" content="&lt;p>Hello,&lt;/p>&#xD;&#xA;&#xD;&#xA;&lt;p>You have a pending Review to submit, could you please access your task list before the &lt;strong>${employeeReview.getReviewHR().getReviewEndDate().toString()}&lt;/strong>&lt;/p>&#xD;&#xA;&#xD;&#xA;&lt;p>Kind regards,&lt;/p>" type="TYPE_PATTERN" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_R-8GgIV_EeuYvrhQtGJTIg" name="employeeReview.getReviewHR().getReviewEndDate().toString()" content="employeeReview.getReviewHR().getReviewEndDate().toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_R-8GgYV_EeuYvrhQtGJTIg" name="employeeReview" content="employeeReview" type="TYPE_VARIABLE" returnType="com.company.model.Review">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_R-8GgoV_EeuYvrhQtGJTIg" name="employeeReview" dataType="_Hw2AFHD8EeugvpppLMSnYA" className="com.company.model.Review"/>
+                    </referencedElements>
+                  </referencedElements>
+                </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_9Pk4lYTbEeuce6eRpDTnMw" key="headers">
                 <expression xmi:type="expression:TableExpression" xmi:id="_9Pk4loTbEeuce6eRpDTnMw"/>
@@ -672,16 +678,16 @@
           <completionCondition xmi:type="expression:Expression" xmi:id="_-RMZJ3D8EeugvpppLMSnYA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <BoundaryIntermediateEvents xmi:type="process:NonInterruptingBoundaryTimerEvent" xmi:id="_-ERAUHEQEeuSvYMYUqH4dQ" name="Draft reminder M (7j)" outgoing="_-qLw0HEQEeuSvYMYUqH4dQ">
             <condition xmi:type="expression:Expression" xmi:id="_IWO_YHEREeuSvYMYUqH4dQ" name="getDeadlineMinusOneWeek()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;long oneSecond = 1L;&#xD;&#xA;long sevenDays = 7L;&#xD;&#xA;long oneThousand = 1000L;&#xD;&#xA;long intervalToDeadline = 0L;&#xD;&#xA;long maxValue = 155520000000L;&#xD;&#xA;&#xD;&#xA;Calendar calendarDeadline = GregorianCalendar.getInstance();&#xD;&#xA;Calendar calendarnow = GregorianCalendar.getInstance();&#xD;&#xA;Integer y, m, d;&#xD;&#xA;&#xD;&#xA;y= reviewHRDAO.findLatestReviewHR().reviewEndDate.year;&#xD;&#xA;m=reviewHRDAO.findLatestReviewHR().reviewEndDate.monthValue;&#xD;&#xA;d=reviewHRDAO.findLatestReviewHR().reviewEndDate.dayOfMonth;&#xD;&#xA;&#xD;&#xA;LocalDateTime deadline = LocalDateTime.of(y, m, d, 0, 0).minusDays(sevenDays);&#xD;&#xA;LocalDateTime currentTime = LocalDateTime.now();&#xD;&#xA;intervalToDeadline = java.time.Duration.between(currentTime, deadline).getSeconds().longValue();&#xD;&#xA;&#xD;&#xA;if(intervalToDeadline >= oneSecond) {&#xD;&#xA;&#x9;return (long) intervalToDeadline*oneThousand;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return maxValue;&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_voe6kH9mEeuxLM3RztnTjQ" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_Nws_8IWJEeuYvrhQtGJTIg" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
             </condition>
           </BoundaryIntermediateEvents>
           <BoundaryIntermediateEvents xmi:type="process:NonInterruptingBoundaryTimerEvent" xmi:id="_oQW2cH9mEeuxLM3RztnTjQ" name="Draft reminder M (3j)" outgoing="_p-pkQH9mEeuxLM3RztnTjQ">
             <condition xmi:type="expression:Expression" xmi:id="_yqprEH9mEeuxLM3RztnTjQ" name="getDeadlineMinusThreeDays()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;long oneSecond = 1L;&#xD;&#xA;long threeDays = 3L;&#xD;&#xA;long oneThousand = 1000L;&#xD;&#xA;long intervalToDeadline = 0L;&#xD;&#xA;long maxValue = 155520000000L;&#xD;&#xA;&#xD;&#xA;Calendar calendarDeadline = GregorianCalendar.getInstance();&#xD;&#xA;Calendar calendarnow = GregorianCalendar.getInstance();&#xD;&#xA;Integer y, m, d;&#xD;&#xA;&#xD;&#xA;y= reviewHRDAO.findLatestReviewHR().reviewEndDate.year;&#xD;&#xA;m=reviewHRDAO.findLatestReviewHR().reviewEndDate.monthValue;&#xD;&#xA;d=reviewHRDAO.findLatestReviewHR().reviewEndDate.dayOfMonth;&#xD;&#xA;&#xD;&#xA;LocalDateTime deadline = LocalDateTime.of(y, m, d, 0, 0).minusDays(threeDays);&#xD;&#xA;LocalDateTime currentTime = LocalDateTime.now();&#xD;&#xA;intervalToDeadline = java.time.Duration.between(currentTime, deadline).getSeconds().longValue();&#xD;&#xA;&#xD;&#xA;if(intervalToDeadline >= oneSecond) {&#xD;&#xA;&#x9;return (long) intervalToDeadline*oneThousand;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return maxValue;&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_8mwu4H9mEeuxLM3RztnTjQ" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_QiEUUIWJEeuYvrhQtGJTIg" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
             </condition>
           </BoundaryIntermediateEvents>
           <formMapping xmi:type="process:FormMapping" xmi:id="_-014wnD8EeugvpppLMSnYA">
-            <targetForm xmi:type="expression:Expression" xmi:id="_6VxOQHIhEeu1g-8tQ-T1MA" name="ManagerReviewForm" content="fd3a8ab0-18a4-4923-a1ed-367e5b37e4cd" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_6VxOQHIhEeu1g-8tQ-T1MA" name="DraftReviewForm" content="52837314-168f-481c-8d56-e38325811461" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <filters xmi:type="process:ActorFilter" xmi:id="_R0FckID5Eeuicfja2BPlXg" name="EmployeeManagerAF" definitionId="bonita-actorfilter-single-user" definitionVersion="1.0.0">
             <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_R0FckYD5Eeuicfja2BPlXg" definitionId="bonita-actorfilter-single-user" version="1.0.0">
@@ -801,13 +807,13 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_6FxVBHEREeuSvYMYUqH4dQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_6FxVA3EREeuSvYMYUqH4dQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <BoundaryIntermediateEvents xmi:type="process:NonInterruptingBoundaryTimerEvent" xmi:id="_tU32MH0WEeuPLbVlcs4JBg" name="Deadline's reminder M (3j)" outgoing="_uHT_wH0WEeuPLbVlcs4JBg">
-            <condition xmi:type="expression:Expression" xmi:id="_uwuwMH0WEeuPLbVlcs4JBg" name="getDeadlineMinusThreeDays()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;long one = 1L;&#xD;&#xA;long three = 3L;&#xD;&#xA;long oneThousand = 1000L;&#xD;&#xA;long intervalToDeadline = 0L;&#xD;&#xA;long maxValue = 155520000000L;&#xD;&#xA;&#xD;&#xA;Calendar calendarDeadline = GregorianCalendar.getInstance();&#xD;&#xA;Calendar calendarnow = GregorianCalendar.getInstance();&#xD;&#xA;Integer y, m, d;&#xD;&#xA;&#xD;&#xA;y = reviewHRDAO.findLatestReviewHR().reviewEndDate.year;&#xD;&#xA;m = reviewHRDAO.findLatestReviewHR().reviewEndDate.monthValue;&#xD;&#xA;d = reviewHRDAO.findLatestReviewHR().reviewEndDate.dayOfMonth;&#xD;&#xA;&#xD;&#xA;LocalDateTime deadline = LocalDateTime.of(y, m, d, 0, 0).minusDays(three);&#xD;&#xA;LocalDateTime currentTime = LocalDateTime.now();&#xD;&#xA;&#xD;&#xA;intervalToDeadline = java.time.Duration.between(currentTime, deadline).getSeconds().longValue();&#xD;&#xA;&#xD;&#xA;if(intervalToDeadline >= one) {&#xD;&#xA;&#x9;return (long) intervalToDeadline*oneThousand;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return maxValue;&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_otCn4H9lEeuxLM3RztnTjQ" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
+            <condition xmi:type="expression:Expression" xmi:id="_uwuwMH0WEeuPLbVlcs4JBg" name="getDeadlineMinusThreeDays()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;long one = 1L;&#xD;&#xA;long three = 3L;&#xD;&#xA;long oneThousand = 1000L;&#xD;&#xA;long intervalToDeadline = 0L;&#xD;&#xA;long maxValue = 155520000000L;&#xD;&#xA;&#xD;&#xA;Calendar calendarDeadline = GregorianCalendar.getInstance();&#xD;&#xA;Calendar calendarnow = GregorianCalendar.getInstance();&#xD;&#xA;Integer y, m, d;&#xD;&#xA;&#xD;&#xA;y = reviewHRDAO.findLatestReviewHR().reviewEndDate.year;&#xD;&#xA;m = reviewHRDAO.findLatestReviewHR().reviewEndDate.monthValue;&#xD;&#xA;d = reviewHRDAO.findLatestReviewHR().reviewEndDate.dayOfMonth;&#xD;&#xA;&#xD;&#xA;LocalDateTime deadline = LocalDateTime.of(y, m, d, 0, 0).minusDays(three);&#xD;&#xA;LocalDateTime currentTime = LocalDateTime.now();&#xD;&#xA;&#xD;&#xA;intervalToDeadline = java.time.Duration.between(currentTime, deadline).getSeconds().longValue();&#xD;&#xA;&#xD;&#xA;if(intervalToDeadline >= one) {&#xD;&#xA;&#x9;return (long) intervalToDeadline;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return maxValue;&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
+              <referencedElements xmi:type="expression:Expression" xmi:id="_uv8BIIWJEeuYvrhQtGJTIg" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
             </condition>
           </BoundaryIntermediateEvents>
           <BoundaryIntermediateEvents xmi:type="process:NonInterruptingBoundaryTimerEvent" xmi:id="_a5FiYH39Eeut1J3lULecFQ" name="Deadline's reminder M (1j)" outgoing="_bmxHwH39Eeut1J3lULecFQ">
-            <condition xmi:type="expression:Expression" xmi:id="_c1K0kH39Eeut1J3lULecFQ" name="getDeadlineMinusOneDay()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;long one = 1L;&#xD;&#xA;long oneThousand = 1000L;&#xD;&#xA;long intervalToDeadline = 0L;&#xD;&#xA;long maxValue = 155520000000L;&#xD;&#xA;&#xD;&#xA;Calendar calendarDeadline = GregorianCalendar.getInstance();&#xD;&#xA;Calendar calendarnow = GregorianCalendar.getInstance();&#xD;&#xA;Integer y, m, d;&#xD;&#xA;&#xD;&#xA;y = reviewHRDAO.findLatestReviewHR().reviewEndDate.year;&#xD;&#xA;m = reviewHRDAO.findLatestReviewHR().reviewEndDate.monthValue;&#xD;&#xA;d = reviewHRDAO.findLatestReviewHR().reviewEndDate.dayOfMonth;&#xD;&#xA;&#xD;&#xA;LocalDateTime deadline = LocalDateTime.of(y, m, d, 0, 0).minusDays(one);&#xD;&#xA;LocalDateTime currentTime = LocalDateTime.now();&#xD;&#xA;&#xD;&#xA;intervalToDeadline = java.time.Duration.between(currentTime, deadline).getSeconds().longValue();&#xD;&#xA;&#xD;&#xA;if(intervalToDeadline >= one) {&#xD;&#xA;&#x9;return (long) intervalToDeadline*oneThousand;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return maxValue;&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_kt8VEH9lEeuxLM3RztnTjQ" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
+            <condition xmi:type="expression:Expression" xmi:id="_c1K0kH39Eeut1J3lULecFQ" name="getDeadlineMinusOneDay()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;long one = 1L;&#xD;&#xA;long oneThousand = 1000L;&#xD;&#xA;long intervalToDeadline = 0L;&#xD;&#xA;long maxValue = 155520000000L;&#xD;&#xA;&#xD;&#xA;Calendar calendarDeadline = GregorianCalendar.getInstance();&#xD;&#xA;Calendar calendarnow = GregorianCalendar.getInstance();&#xD;&#xA;Integer y, m, d;&#xD;&#xA;&#xD;&#xA;y = reviewHRDAO.findLatestReviewHR().reviewEndDate.year;&#xD;&#xA;m = reviewHRDAO.findLatestReviewHR().reviewEndDate.monthValue;&#xD;&#xA;d = reviewHRDAO.findLatestReviewHR().reviewEndDate.dayOfMonth;&#xD;&#xA;&#xD;&#xA;LocalDateTime deadline = LocalDateTime.of(y, m, d, 0, 0).minusDays(one);&#xD;&#xA;LocalDateTime currentTime = LocalDateTime.now();&#xD;&#xA;&#xD;&#xA;intervalToDeadline = java.time.Duration.between(currentTime, deadline).getSeconds().longValue();&#xD;&#xA;&#xD;&#xA;if(intervalToDeadline >= one) {&#xD;&#xA;&#x9;return (long) intervalToDeadline;&#xD;&#xA;} else {&#xD;&#xA;&#x9;return maxValue;&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
+              <referencedElements xmi:type="expression:Expression" xmi:id="_s2OGcIWJEeuYvrhQtGJTIg" name="reviewHRDAO" content="reviewHRDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.ReviewHRDAO" returnTypeFixed="true"/>
             </condition>
           </BoundaryIntermediateEvents>
           <formMapping xmi:type="process:FormMapping" xmi:id="_XcBydHEUEeuSvYMYUqH4dQ">
@@ -889,13 +895,19 @@
                 <expression xmi:type="expression:Expression" xmi:id="_nftgfnEzEeu6FtDbRFF2SA" content="" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_nftgf3EzEeu6FtDbRFF2SA" key="subject">
-                <expression xmi:type="expression:Expression" xmi:id="_nftggHEzEeu6FtDbRFF2SA" name="Review Reminder (7j)" content="Review Reminder (7j)" returnTypeFixed="true"/>
+                <expression xmi:type="expression:Expression" xmi:id="_nftggHEzEeu6FtDbRFF2SA" name="Review Deadline Notification M" content="Review Deadline Notification M" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_nftggXEzEeu6FtDbRFF2SA" key="html">
                 <expression xmi:type="expression:Expression" xmi:id="_nftggnEzEeu6FtDbRFF2SA" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_nftgg3EzEeu6FtDbRFF2SA" key="message">
-                <expression xmi:type="expression:Expression" xmi:id="_nftghHEzEeu6FtDbRFF2SA" name="&lt;pattern-expression>" content="You have a pending Review to submit, could you please access your task list." type="TYPE_PATTERN" returnTypeFixed="true"/>
+                <expression xmi:type="expression:Expression" xmi:id="_nftghHEzEeu6FtDbRFF2SA" name="&lt;pattern-expression>" content="&lt;p>Hello,&lt;/p>&#xD;&#xA;&lt;br>&#xD;&#xA;&lt;p>You have a pending Review to submit, could you please access your task list before the &lt;strong>${employeeReview.getReviewHR().getReviewEndDate().toString()}&lt;/strong>?&lt;/p>&#xD;&#xA;&lt;br>&#xD;&#xA;&lt;p>Kind regards,&lt;/p>" type="TYPE_PATTERN" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_zwdUsIWJEeuYvrhQtGJTIg" name="employeeReview.getReviewHR().getReviewEndDate().toString()" content="employeeReview.getReviewHR().getReviewEndDate().toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_zwdUsYWJEeuYvrhQtGJTIg" name="employeeReview" content="employeeReview" type="TYPE_VARIABLE" returnType="com.company.model.Review">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_zwdUsoWJEeuYvrhQtGJTIg" name="employeeReview" dataType="_Hw2AFHD8EeugvpppLMSnYA" className="com.company.model.Review"/>
+                    </referencedElements>
+                  </referencedElements>
+                </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_nftghXEzEeu6FtDbRFF2SA" key="headers">
                 <expression xmi:type="expression:TableExpression" xmi:id="_nftghnEzEeu6FtDbRFF2SA"/>
@@ -974,13 +986,19 @@
                 <expression xmi:type="expression:Expression" xmi:id="_AWpXToTcEeuce6eRpDTnMw" content="" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_AWpXT4TcEeuce6eRpDTnMw" key="subject">
-                <expression xmi:type="expression:Expression" xmi:id="_AWpXUITcEeuce6eRpDTnMw" name="Review Reminder (7j)" content="Review Reminder (7j)" returnTypeFixed="true"/>
+                <expression xmi:type="expression:Expression" xmi:id="_AWpXUITcEeuce6eRpDTnMw" name="Review Draft Submission Reminder" content="Review Draft Submission Reminder" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_AWpXUYTcEeuce6eRpDTnMw" key="html">
                 <expression xmi:type="expression:Expression" xmi:id="_AWpXUoTcEeuce6eRpDTnMw" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_AWpXU4TcEeuce6eRpDTnMw" key="message">
-                <expression xmi:type="expression:Expression" xmi:id="_AWpXVITcEeuce6eRpDTnMw" name="&lt;pattern-expression>" content="You have a pending Review to submit, could you please access your task list." type="TYPE_PATTERN" returnTypeFixed="true"/>
+                <expression xmi:type="expression:Expression" xmi:id="_AWpXVITcEeuce6eRpDTnMw" name="&lt;pattern-expression>" content="&lt;p>Hello,&lt;/p>&#xD;&#xA;&lt;br>&#xD;&#xA;&lt;p>You have a pending Review to submit, could you please access your task list before the &lt;strong>${employeeReview.getReviewHR().getReviewEndDate().toString()}&lt;/strong>?&lt;/p>&#xD;&#xA;&lt;br>&#xD;&#xA;&lt;p>Kind regards,&lt;/p>" type="TYPE_PATTERN" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_emIW4IWHEeuYvrhQtGJTIg" name="employeeReview.getReviewHR().getReviewEndDate().toString()" content="employeeReview.getReviewHR().getReviewEndDate().toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_emIW4YWHEeuYvrhQtGJTIg" name="employeeReview" content="employeeReview" type="TYPE_VARIABLE" returnType="com.company.model.Review">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_emIW4oWHEeuYvrhQtGJTIg" name="employeeReview" dataType="_Hw2AFHD8EeugvpppLMSnYA" className="com.company.model.Review"/>
+                    </referencedElements>
+                  </referencedElements>
+                </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_AWpXVYTcEeuce6eRpDTnMw" key="headers">
                 <expression xmi:type="expression:TableExpression" xmi:id="_AWpXVoTcEeuce6eRpDTnMw"/>
@@ -1422,7 +1440,7 @@
         <defaultValue xmi:type="expression:Expression" xmi:id="_Vxmm0YBQEeuy391WD8wb8g" content="" returnType="java.lang.Long"/>
       </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_Hw1_9HD8EeugvpppLMSnYA" type="NONE">
-        <targetForm xmi:type="expression:Expression" xmi:id="_CnNvUXneEeuw_4w-dGcbsQ" name="EmployeeReviewForm" content="52837314-168f-481c-8d56-e38325811461" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+        <targetForm xmi:type="expression:Expression" xmi:id="_CnNvUXneEeuw_4w-dGcbsQ" name="DraftReviewForm" content="52837314-168f-481c-8d56-e38325811461" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_Hw1_9nD8EeugvpppLMSnYA">
         <targetForm xmi:type="expression:Expression" xmi:id="_Hw1_93D8EeugvpppLMSnYA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
@@ -1903,7 +1921,7 @@
             </children>
             <children xmi:type="notation:Shape" xmi:id="_E7KF0H0pEeuPLbVlcs4JBg" type="3027" element="_E7HpkH0pEeuPLbVlcs4JBg" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_E7Ks4H0pEeuPLbVlcs4JBg" type="5017"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E7KF0X0pEeuPLbVlcs4JBg" x="1085" y="204" width="129" height="63"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E7KF0X0pEeuPLbVlcs4JBg" x="1078" y="204" width="129" height="63"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_8lscQH0TEeuYmZ3jF76ANA" type="3003" element="_8lqnEH0TEeuYmZ3jF76ANA" fontName="Segoe UI">
               <children xmi:type="notation:DecorationNode" xmi:id="_8ltDUH0TEeuYmZ3jF76ANA" type="5025">
@@ -1926,7 +1944,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_Hw2AJHD8EeugvpppLMSnYA" fontName="Segoe UI"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_Hw2AJXD8EeugvpppLMSnYA"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_Hw2AJnD8EeugvpppLMSnYA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hw2AJ3D8EeugvpppLMSnYA" x="58" y="10" width="1965" height="316"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hw2AJ3D8EeugvpppLMSnYA" x="58" y="10" width="1965" height="344"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_OXAbkHD8EeugvpppLMSnYA" type="3007" element="_OW_NcHD8EeugvpppLMSnYA">
           <children xmi:type="notation:DecorationNode" xmi:id="_OXAblXD8EeugvpppLMSnYA" type="5007"/>
@@ -1965,7 +1983,7 @@
             </children>
             <children xmi:type="notation:Shape" xmi:id="_-qHfYHEQEeuSvYMYUqH4dQ" type="3027" element="_-qGRQHEQEeuSvYMYUqH4dQ" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_-qHfYnEQEeuSvYMYUqH4dQ" type="5017"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-qHfYXEQEeuSvYMYUqH4dQ" x="1079" y="259" width="128" height="64"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-qHfYXEQEeuSvYMYUqH4dQ" x="1080" y="259" width="128" height="64"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_CU69MHEREeuSvYMYUqH4dQ" type="3003" element="_CU5IAHEREeuSvYMYUqH4dQ" fontName="Segoe UI">
               <children xmi:type="notation:DecorationNode" xmi:id="_CU7kQHEREeuSvYMYUqH4dQ" type="5025">
@@ -2125,16 +2143,16 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_O1_2QXIQEeu1g-8tQ-T1MA" fontName="Segoe UI"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_O1_2QnIQEeu1g-8tQ-T1MA" points="[0, 13, -136, 361]$[77, 13, -59, 361]$[77, -359, -59, -11]$[138, -359, 2, -11]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_O2DgoHIQEeu1g-8tQ-T1MA" id="(1.0,0.36363636363636365)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ufcbwHabEeuiTcKuAlCRlQ" id="(0.18604651162790697,0.9767441860465116)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ufcbwHabEeuiTcKuAlCRlQ" id="(0.09302325581395349,0.7674418604651163)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_tIqNUHLdEeuCCImSIEplpQ" type="4001" element="_tIoYIHLdEeuCCImSIEplpQ" source="_XGFG8HLdEeuCCImSIEplpQ" target="_iCDEYHFgEeucLdM83OeX1g" roundedBendpointsRadius="10" routing="Rectilinear">
       <children xmi:type="notation:DecorationNode" xmi:id="_tIq0YHLdEeuCCImSIEplpQ" type="6001">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_tIq0YXLdEeuCCImSIEplpQ" y="-10"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_tIqNUXLdEeuCCImSIEplpQ" fontName="Segoe UI"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tIqNUnLdEeuCCImSIEplpQ" points="[-15, -28, 753, 808]$[-829, -28, -61, 808]$[-829, -824, -61, 12]$[-761, -824, 7, 12]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tIqNUnLdEeuCCImSIEplpQ" points="[-15, -26, 756, 875]$[-829, -26, -58, 875]$[-829, -906, -58, -5]$[-763, -906, 8, -5]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tIspkHLdEeuCCImSIEplpQ" id="(0.09933774834437085,0.8311688311688312)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rkNuwHnSEeuw_4w-dGcbsQ" id="(0.11627906976744186,0.5116279069767442)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rkNuwHnSEeuw_4w-dGcbsQ" id="(0.046511627906976744,0.8604651162790697)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_EgTyQHaZEeuiTcKuAlCRlQ" type="4001" element="_EgJaMHaZEeuiTcKuAlCRlQ" source="_ZFsJ0HESEeuSvYMYUqH4dQ" target="_YBCkAHEUEeuSvYMYUqH4dQ" roundedBendpointsRadius="10" routing="Rectilinear">
       <children xmi:type="notation:DecorationNode" xmi:id="_EgVAYHaZEeuiTcKuAlCRlQ" type="6001">
@@ -2160,7 +2178,7 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_QMzfsXbHEeu6pOaWgrSVcw" fontName="Segoe UI"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QMzfsnbHEeu6pOaWgrSVcw" points="[11, -7, -231, -388]$[122, -7, -120, -388]$[122, 372, -120, -9]$[206, 372, -36, -9]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QM178HbHEeu6pOaWgrSVcw" id="(0.7906976744186046,0.6976744186046512)"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QM178HbHEeu6pOaWgrSVcw" id="(0.7906976744186046,0.5116279069767442)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QM178XbHEeu6pOaWgrSVcw" id="(0.21052631578947367,0.7976190476190477)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_mNw1cHbHEeu6pOaWgrSVcw" type="4001" element="_mNvnUHbHEeu6pOaWgrSVcw" source="_dn_Z0HbEEeu6pOaWgrSVcw" target="_UW3esHEcEeuSvYMYUqH4dQ" roundedBendpointsRadius="10" routing="Rectilinear">
