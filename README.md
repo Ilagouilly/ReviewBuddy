@@ -25,7 +25,7 @@ ReviewBuddy is an App that automates Review Processes. From the time a HR repres
 
 ## How can I get ReviewBuddy and adjust it to my company's needs?
 
-You'll need to download the latest version of Bonita Community Edition and clone this project.
+Definitly! All you'll need is to download the latest version of Bonita Community Edition and clone this project.
 
 ## Are contributions welcome?
 
