@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connectorconfiguration:ConnectorConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:parameter="http://www.bonitasoft.org/ns/studio/parameter" definitionId="email" version="1.2.0" name="EmployeeEmailReminder" modelVersion="7.12.0-004">
+  <parameters key="smtpHost">
+    <expression xsi:type="expression:Expression" name="mailHost" content="mailHost" interpreter="GROOVY" type="TYPE_PARAMETER" returnTypeFixed="true">
+      <referencedElements xsi:type="parameter:Parameter" name="mailHost" typeClassname="java.lang.String"/>
+    </expression>
+  </parameters>
+  <parameters key="smtpPort">
+    <expression xsi:type="expression:Expression" name="portHost" content="portHost" interpreter="GROOVY" type="TYPE_PARAMETER" returnType="java.lang.Integer" returnTypeFixed="true">
+      <referencedElements xsi:type="parameter:Parameter" name="portHost" typeClassname="java.lang.Integer"/>
+    </expression>
+  </parameters>
+  <parameters key="sslSupport">
+    <expression xsi:type="expression:Expression" name="false" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="starttlsSupport">
+    <expression xsi:type="expression:Expression" name="false" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="trustCertificate">
+    <expression xsi:type="expression:Expression" name="false" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="userName">
+    <expression xsi:type="expression:Expression" content="" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="password">
+    <expression xsi:type="expression:Expression" content="" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="from">
+    <expression xsi:type="expression:Expression" name="noreplyEmail" content="noreplyEmail" type="TYPE_PARAMETER" returnTypeFixed="true">
+      <referencedElements xsi:type="parameter:Parameter" name="noreplyEmail" typeClassname="java.lang.String"/>
+    </expression>
+  </parameters>
+  <parameters key="returnPath">
+    <expression xsi:type="expression:Expression" content="" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="to">
+    <expression xsi:type="expression:Expression" name="getEmployeesEmail()" content="import org.bonitasoft.engine.api.IdentityAPI;&#xD;&#xA;import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance;&#xD;&#xA;//Import the apis&#xD;&#xA;processApi = apiAccessor.getProcessAPI();&#xD;&#xA;IdentityAPI identityApi = apiAccessor.getIdentityAPI();&#xD;&#xA;//Get the TaskInstance&#xD;&#xA;HumanTaskInstance humanTaskInstance = processApi.getHumanTaskInstances(processInstanceId, &quot;Review Request&quot;, 0, 1).get(0);&#xD;&#xA;//Get the user id assigned to the task review request&#xD;&#xA;long reviewRequestAssignedId = humanTaskInstance.getAssigneeId();&#xD;&#xA;//Get the review request email&#xD;&#xA;String reviewRequestAssignedEmail = &quot;&quot;;&#xD;&#xA;if(reviewRequestAssignedId >0){&#xD;&#xA;reviewRequestAssignedEmail = identityApi.getUserContactData(reviewRequestAssignedId, false).getEmail();&#xD;&#xA;}&#xD;&#xA;else{&#xD;&#xA;reviewRequestAssignedEmail = &quot;william.jobs@acme.com&quot;&#xD;&#xA;}&#xD;&#xA;return reviewRequestAssignedEmail;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+      <referencedElements xsi:type="expression:Expression" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+      <referencedElements xsi:type="expression:Expression" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
+    </expression>
+  </parameters>
+  <parameters key="bcc">
+    <expression xsi:type="expression:Expression" content="" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="cc">
+    <expression xsi:type="expression:Expression" content="" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="subject">
+    <expression xsi:type="expression:Expression" name="Quaterly Review Reminder (7j)" content="Quaterly Review Reminder (7j)" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="html">
+    <expression xsi:type="expression:Expression" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="message">
+    <expression xsi:type="expression:Expression" name="&lt;pattern-expression>" content="You have a pending Quaterly Review to submit, please access your task list." type="TYPE_PATTERN" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="headers">
+    <expression xsi:type="expression:TableExpression"/>
+  </parameters>
+  <parameters key="charset">
+    <expression xsi:type="expression:Expression" name="UTF-8" content="UTF-8" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="replyTo">
+    <expression xsi:type="expression:Expression" content="" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="attachments">
+    <expression xsi:type="expression:ListExpression"/>
+  </parameters>
+</connectorconfiguration:ConnectorConfiguration>

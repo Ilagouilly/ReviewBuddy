@@ -3,7 +3,7 @@
   <process:MainProcess xmi:id="_Hw1_4HD8EeugvpppLMSnYA" name="Review Diagram" author="Ismaillagouilly" bonitaVersion="7.12.1" bonitaModelVersion="7.12.0-004">
     <elements xmi:type="process:Pool" xmi:id="_Hw1_4XD8EeugvpppLMSnYA" name="Review Pool">
       <elements xmi:type="process:Lane" xmi:id="_Hw1_4nD8EeugvpppLMSnYA" name="Employee lane" actor="_4So_QIDPEeuicfja2BPlXg">
-        <elements xmi:type="process:Task" xmi:id="_W0WucHEUEeuSvYMYUqH4dQ" name="Final Employee's Review" outgoing="_pzmCkHaZEeuiTcKuAlCRlQ" incoming="_oQ2wAHFgEeucLdM83OeX1g" overrideActorsOfTheLane="false">
+        <elements xmi:type="process:Task" xmi:id="_W0WucHEUEeuSvYMYUqH4dQ" name="Submit Employee's Review" outgoing="_pzmCkHaZEeuiTcKuAlCRlQ" incoming="_oQ2wAHFgEeucLdM83OeX1g" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_4WOqAXEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_4WOqAHEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_4WOqAnEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
@@ -186,7 +186,7 @@
             <operator xmi:type="expression:Operator" xmi:id="_SIP6gYBQEeuy391WD8wb8g" type="ASSIGNMENT"/>
           </messageContent>
         </elements>
-        <elements xmi:type="process:Task" xmi:id="_SwUVMIBSEeuy391WD8wb8g" name="Submit Employee's Review" outgoing="_NVViYIS0EeuEp52E_9J-5w" incoming="_A4dK8IS0EeuEp52E_9J-5w" actor="_Hw1_-3D8EeugvpppLMSnYA" overrideActorsOfTheLane="false">
+        <elements xmi:type="process:Task" xmi:id="_SwUVMIBSEeuy391WD8wb8g" name="Draft Employee's Review" outgoing="_NVViYIS0EeuEp52E_9J-5w" incoming="_A4dK8IS0EeuEp52E_9J-5w" actor="_Hw1_-3D8EeugvpppLMSnYA" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_SRm_8YBSEeuy391WD8wb8g" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_SRm_8IBSEeuy391WD8wb8g" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_SRm_8oBSEeuy391WD8wb8g" name="" content="" returnTypeFixed="true"/>
@@ -493,9 +493,9 @@
                 <expression xmi:type="expression:Expression" xmi:id="_9PkRloTbEeuce6eRpDTnMw" content="" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_9PkRl4TbEeuce6eRpDTnMw" key="to">
-                <expression xmi:type="expression:Expression" xmi:id="_9PkRmITbEeuce6eRpDTnMw" name="getEmployeesEmail()" content="import org.bonitasoft.engine.api.IdentityAPI;&#xD;&#xA;import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance;&#xD;&#xA;//Import the apis&#xD;&#xA;processApi = apiAccessor.getProcessAPI();&#xD;&#xA;IdentityAPI identityApi = apiAccessor.getIdentityAPI();&#xD;&#xA;//Get the TaskInstance&#xD;&#xA;HumanTaskInstance humanTaskInstance = processApi.getHumanTaskInstances(processInstanceId, &quot;Submit Employee's Review&quot;, 0, 1).get(0);&#xD;&#xA;//Get the user id assigned to the task review request&#xD;&#xA;long reviewRequestAssignedId = humanTaskInstance.getAssigneeId();&#xD;&#xA;//Get the review request email&#xD;&#xA;String reviewRequestAssignedEmail = &quot;&quot;;&#xD;&#xA;if(reviewRequestAssignedId >0){&#xD;&#xA;reviewRequestAssignedEmail = identityApi.getUserContactData(reviewRequestAssignedId, false).getEmail();&#xD;&#xA;}&#xD;&#xA;else{&#xD;&#xA;reviewRequestAssignedEmail = &quot;william.jobs@acme.com&quot;&#xD;&#xA;}&#xD;&#xA;return reviewRequestAssignedEmail;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
-                  <referencedElements xmi:type="expression:Expression" xmi:id="_MCUUIITcEeuce6eRpDTnMw" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
-                  <referencedElements xmi:type="expression:Expression" xmi:id="_MCU7MITcEeuce6eRpDTnMw" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
+                <expression xmi:type="expression:Expression" xmi:id="_9PkRmITbEeuce6eRpDTnMw" name="getEmployeesEmail()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;&#xD;&#xA;long employeesID = apiAccessor.getIdentityAPI().getUser(apiAccessor.getProcessAPI().getProcessInstance(processInstanceId).getStartedBy()).getId();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;String employeesEmail = &quot;&quot;;&#xD;&#xA;if(employeesID != 0) {&#xD;&#xA;&#x9;employeesEmail = apiAccessor.getIdentityAPI().getUserContactData(employeesID, false).getEmail();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return employeesEmail;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_tHnXUIccEeu0IZ0Pj2ZwTg" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_tHnXUYccEeu0IZ0Pj2ZwTg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
                 </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_9PkRm4TbEeuce6eRpDTnMw" key="bcc">
@@ -555,7 +555,7 @@
         </filters>
       </elements>
       <elements xmi:type="process:Lane" xmi:id="_OW_NcHD8EeugvpppLMSnYA" name="Manager" actor="_4So_QIDPEeuicfja2BPlXg">
-        <elements xmi:type="process:Task" xmi:id="_-00qoHD8EeugvpppLMSnYA" name="Submit Manager's Review" outgoing="_O16WsHIQEeu1g-8tQ-T1MA" incoming="_BoYzEIS0EeuEp52E_9J-5w" actor="_4So_QIDPEeuicfja2BPlXg">
+        <elements xmi:type="process:Task" xmi:id="_-00qoHD8EeugvpppLMSnYA" name="Draft Manager's Review" outgoing="_O16WsHIQEeu1g-8tQ-T1MA" incoming="_BoYzEIS0EeuEp52E_9J-5w" actor="_4So_QIDPEeuicfja2BPlXg">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_-RMZInD8EeugvpppLMSnYA" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_-RMZIXD8EeugvpppLMSnYA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_-RMZI3D8EeugvpppLMSnYA" name="" content="" returnTypeFixed="true"/>
@@ -713,7 +713,7 @@
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_-014xHD8EeugvpppLMSnYA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:Task" xmi:id="_XcAkUHEUEeuSvYMYUqH4dQ" name="Final Manager's Review" outgoing="_ahPh0HESEeuSvYMYUqH4dQ" incoming="_QMyRkHbHEeu6pOaWgrSVcw" overrideActorsOfTheLane="false">
+        <elements xmi:type="process:Task" xmi:id="_XcAkUHEUEeuSvYMYUqH4dQ" name="Submit Manager's Review" outgoing="_ahPh0HESEeuSvYMYUqH4dQ" incoming="_QMyRkHbHEeu6pOaWgrSVcw" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_6Fwt8XEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_6Fwt8HEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_6Fwt8nEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
@@ -883,9 +883,9 @@
                 <expression xmi:type="expression:Expression" xmi:id="_nftgdnEzEeu6FtDbRFF2SA" content="" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_nftgd3EzEeu6FtDbRFF2SA" key="to">
-                <expression xmi:type="expression:Expression" xmi:id="_nftgeHEzEeu6FtDbRFF2SA" name="getManagersEmail()" content="import org.bonitasoft.engine.api.IdentityAPI;&#xD;&#xA;import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance;&#xD;&#xA;//Import the apis&#xD;&#xA;processApi = apiAccessor.getProcessAPI();&#xD;&#xA;IdentityAPI identityApi = apiAccessor.getIdentityAPI();&#xD;&#xA;//Get the TaskInstance&#xD;&#xA;HumanTaskInstance humanTaskInstance = processApi.getHumanTaskInstances(processInstanceId, &quot;Final Manager's Review&quot;, 0, 1).get(0);&#xD;&#xA;//Get the user id assigned to the task review request&#xD;&#xA;long reviewRequestAssignedId = humanTaskInstance.getAssigneeId();&#xD;&#xA;//Get the review request email&#xD;&#xA;String reviewRequestAssignedEmail = &quot;&quot;;&#xD;&#xA;if(reviewRequestAssignedId >0){&#xD;&#xA;reviewRequestAssignedEmail = identityApi.getUserContactData(reviewRequestAssignedId, false).getEmail();&#xD;&#xA;}&#xD;&#xA;else{&#xD;&#xA;reviewRequestAssignedEmail = &quot;william.jobs@acme.com&quot;&#xD;&#xA;}&#xD;&#xA;return reviewRequestAssignedEmail;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
-                  <referencedElements xmi:type="expression:Expression" xmi:id="_6EtpoITcEeuce6eRpDTnMw" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
-                  <referencedElements xmi:type="expression:Expression" xmi:id="_6EtpoYTcEeuce6eRpDTnMw" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
+                <expression xmi:type="expression:Expression" xmi:id="_nftgeHEzEeu6FtDbRFF2SA" name="getManagersEmail()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;&#xD;&#xA;long employeesID = apiAccessor.getIdentityAPI().getUser(apiAccessor.getProcessAPI().getProcessInstance(processInstanceId).getStartedBy()).getManagerUserId();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;String employeesEmail = &quot;&quot;;&#xD;&#xA;if(employeesID != 0) {&#xD;&#xA;&#x9;employeesEmail = apiAccessor.getIdentityAPI().getUserContactData(employeesID, false).getEmail();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return employeesEmail;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_7UpdwIccEeu0IZ0Pj2ZwTg" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_7UpdwYccEeu0IZ0Pj2ZwTg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
                 </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_nftge3EzEeu6FtDbRFF2SA" key="bcc">
@@ -895,7 +895,7 @@
                 <expression xmi:type="expression:Expression" xmi:id="_nftgfnEzEeu6FtDbRFF2SA" content="" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_nftgf3EzEeu6FtDbRFF2SA" key="subject">
-                <expression xmi:type="expression:Expression" xmi:id="_nftggHEzEeu6FtDbRFF2SA" name="Review Deadline Notification M" content="Review Deadline Notification M" returnTypeFixed="true"/>
+                <expression xmi:type="expression:Expression" xmi:id="_nftggHEzEeu6FtDbRFF2SA" name="Review Deadline Notification" content="Review Deadline Notification" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_nftggXEzEeu6FtDbRFF2SA" key="html">
                 <expression xmi:type="expression:Expression" xmi:id="_nftggnEzEeu6FtDbRFF2SA" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
@@ -974,9 +974,9 @@
                 <expression xmi:type="expression:Expression" xmi:id="_AWpXRoTcEeuce6eRpDTnMw" content="" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_AWpXR4TcEeuce6eRpDTnMw" key="to">
-                <expression xmi:type="expression:Expression" xmi:id="_AWpXSITcEeuce6eRpDTnMw" name="getManagersEmail()" content="import org.bonitasoft.engine.api.IdentityAPI;&#xD;&#xA;import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance;&#xD;&#xA;//Import the apis&#xD;&#xA;processApi = apiAccessor.getProcessAPI();&#xD;&#xA;IdentityAPI identityApi = apiAccessor.getIdentityAPI();&#xD;&#xA;//Get the TaskInstance&#xD;&#xA;HumanTaskInstance humanTaskInstance = processApi.getHumanTaskInstances(processInstanceId, &quot;Submit Manager's Review&quot;, 0, 1).get(0);&#xD;&#xA;//Get the user id assigned to the task review request&#xD;&#xA;long reviewRequestAssignedId = humanTaskInstance.getAssigneeId();&#xD;&#xA;//Get the review request email&#xD;&#xA;String reviewRequestAssignedEmail = &quot;&quot;;&#xD;&#xA;if(reviewRequestAssignedId >0){&#xD;&#xA;reviewRequestAssignedEmail = identityApi.getUserContactData(reviewRequestAssignedId, false).getEmail();&#xD;&#xA;}&#xD;&#xA;else{&#xD;&#xA;reviewRequestAssignedEmail = &quot;william.jobs@acme.com&quot;&#xD;&#xA;}&#xD;&#xA;return reviewRequestAssignedEmail;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
-                  <referencedElements xmi:type="expression:Expression" xmi:id="_AWpXSYTcEeuce6eRpDTnMw" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
-                  <referencedElements xmi:type="expression:Expression" xmi:id="_AWpXSoTcEeuce6eRpDTnMw" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
+                <expression xmi:type="expression:Expression" xmi:id="_AWpXSITcEeuce6eRpDTnMw" name="getManagersEmail()" content="import java.time.LocalDate&#xD;&#xA;import java.time.LocalDateTime&#xD;&#xA;&#xD;&#xA;long employeesID = apiAccessor.getIdentityAPI().getUser(apiAccessor.getProcessAPI().getProcessInstance(processInstanceId).getStartedBy()).getManagerUserId();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;String employeesEmail = &quot;&quot;;&#xD;&#xA;if(employeesID != 0) {&#xD;&#xA;&#x9;employeesEmail = apiAccessor.getIdentityAPI().getUserContactData(employeesID, false).getEmail();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return employeesEmail;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_A3YtkIcdEeu0IZ0Pj2ZwTg" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_A3YtkYcdEeu0IZ0Pj2ZwTg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
                 </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_AWpXS4TcEeuce6eRpDTnMw" key="bcc">
@@ -1037,7 +1037,7 @@
         </filters>
       </elements>
       <elements xmi:type="process:Lane" xmi:id="_tnmwsHD8EeugvpppLMSnYA" name="HR Validator" actor="_ZFTkwHEREeuSvYMYUqH4dQ">
-        <elements xmi:type="process:Task" xmi:id="_YBAu0HEUEeuSvYMYUqH4dQ" name="Validate Review" outgoing="_cSvYMHFgEeucLdM83OeX1g" incoming="_EgJaMHaZEeuiTcKuAlCRlQ" overrideActorsOfTheLane="false">
+        <elements xmi:type="process:Task" xmi:id="_YBAu0HEUEeuSvYMYUqH4dQ" name="Validate Employee's Review" outgoing="_cSvYMHFgEeucLdM83OeX1g" incoming="_EgJaMHaZEeuiTcKuAlCRlQ" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_mVfocXEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_mVfocHEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_mVfocnEREeuSvYMYUqH4dQ" name="" content="" returnTypeFixed="true"/>
@@ -1229,7 +1229,7 @@
             <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_UTpmcYAhEeu247mbPHrFCw" definitionId="document-templating" version="1.0.1" modelVersion="7.12.0-004">
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_UTpmcoAhEeu247mbPHrFCw" key="documentInput">
                 <expression xmi:type="expression:Expression" xmi:id="_UTpmc4AhEeu247mbPHrFCw" name="reviewDocument" content="reviewDocument" type="DOCUMENT_REF_TYPE" returnTypeFixed="true">
-                  <referencedElements xmi:type="process:Document" xmi:id="_g-uTMINIEeuxf7ql8zKXWg" name="reviewDocument"/>
+                  <referencedElements xmi:type="process:Document" xmi:id="_PC650IcKEeu0IZ0Pj2ZwTg" name="reviewDocument"/>
                 </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_UTpmdYAhEeu247mbPHrFCw" key="replacements">
@@ -1292,7 +1292,7 @@
             </configuration>
             <outputs xmi:type="expression:Operation" xmi:id="_UTpmfYAhEeu247mbPHrFCw">
               <leftOperand xmi:type="expression:Expression" xmi:id="_UTpmfoAhEeu247mbPHrFCw" name="reviewDocument" content="reviewDocument" type="DOCUMENT_REF_TYPE">
-                <referencedElements xmi:type="process:Document" xmi:id="_g-u6QINIEeuxf7ql8zKXWg" name="reviewDocument"/>
+                <referencedElements xmi:type="process:Document" xmi:id="_PC8H8IcKEeu0IZ0Pj2ZwTg" name="reviewDocument"/>
               </leftOperand>
               <rightOperand xmi:type="expression:Expression" xmi:id="_UTpmgIAhEeu247mbPHrFCw" name="document" content="document" type="CONNECTOR_OUTPUT_TYPE" returnType="org.bonitasoft.engine.bpm.document.DocumentValue">
                 <referencedElements xmi:type="definition:Output" xmi:id="_UTpmgYAhEeu247mbPHrFCw" name="document" type="org.bonitasoft.engine.bpm.document.DocumentValue"/>
@@ -1304,7 +1304,7 @@
             <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_JzOPMYNDEeuxf7ql8zKXWg" definitionId="document-converter" version="1.0.2" modelVersion="7.12.0-004">
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_JzOPMoNDEeuxf7ql8zKXWg" key="sourceDocument">
                 <expression xmi:type="expression:Expression" xmi:id="_JzOPM4NDEeuxf7ql8zKXWg" name="reviewDocument" content="reviewDocument" type="DOCUMENT_REF_TYPE" returnTypeFixed="true">
-                  <referencedElements xmi:type="process:Document" xmi:id="_i7TUoINIEeuxf7ql8zKXWg" name="reviewDocument"/>
+                  <referencedElements xmi:type="process:Document" xmi:id="_Q7KN0IcKEeu0IZ0Pj2ZwTg" name="reviewDocument"/>
                 </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_JzOPNYNDEeuxf7ql8zKXWg" key="encoding">
@@ -1318,7 +1318,7 @@
             </configuration>
             <outputs xmi:type="expression:Operation" xmi:id="_JzOPOYNDEeuxf7ql8zKXWg">
               <leftOperand xmi:type="expression:Expression" xmi:id="_JzOPOoNDEeuxf7ql8zKXWg" name="reviewDocument" content="reviewDocument" type="DOCUMENT_REF_TYPE">
-                <referencedElements xmi:type="process:Document" xmi:id="_i7TUoYNIEeuxf7ql8zKXWg" name="reviewDocument"/>
+                <referencedElements xmi:type="process:Document" xmi:id="_Q7K04IcKEeu0IZ0Pj2ZwTg" name="reviewDocument"/>
               </leftOperand>
               <rightOperand xmi:type="expression:Expression" xmi:id="_JzOPPINDEeuxf7ql8zKXWg" name="outputDocumentValue" content="outputDocumentValue" type="CONNECTOR_OUTPUT_TYPE" returnType="org.bonitasoft.engine.bpm.document.DocumentValue">
                 <referencedElements xmi:type="definition:Output" xmi:id="_JzOPPYNDEeuxf7ql8zKXWg" name="outputDocumentValue" type="org.bonitasoft.engine.bpm.document.DocumentValue"/>
@@ -1373,13 +1373,21 @@
                 <expression xmi:type="expression:Expression" xmi:id="_rImCvXbFEeu6pOaWgrSVcw" content="" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_rImCvnbFEeu6pOaWgrSVcw" key="subject">
-                <expression xmi:type="expression:Expression" xmi:id="_rImCv3bFEeu6pOaWgrSVcw" name="Review's Summary" content="Review's Summary" returnTypeFixed="true"/>
+                <expression xmi:type="expression:Expression" xmi:id="_rImCv3bFEeu6pOaWgrSVcw" name="setSummaryReviewSubjectEmail()" content="import java.time.format.DateTimeFormatter&#xD;&#xA;&#xD;&#xA;DateTimeFormatter fmt = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);&#xD;&#xA;String dateValue = fmt.format(employeeReview.reviewSubmissionEmployeeDate.toLocalDateTime()).toString();&#xD;&#xA;&#xD;&#xA;return employeeReview.employeesFullName.concat(&quot;'s Review Summary (&quot;).concat(dateValue).concat(&quot;)&quot;);" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_VKmToIcTEeu0IZ0Pj2ZwTg" name="employeeReview" dataType="_Hw2AFHD8EeugvpppLMSnYA" className="com.company.model.Review"/>
+                </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_rImCwHbFEeu6pOaWgrSVcw" key="html">
                 <expression xmi:type="expression:Expression" xmi:id="_rImCwXbFEeu6pOaWgrSVcw" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_rImCwnbFEeu6pOaWgrSVcw" key="message">
-                <expression xmi:type="expression:Expression" xmi:id="_rImCw3bFEeu6pOaWgrSVcw" name="&lt;pattern-expression>" content="" type="TYPE_PATTERN" returnTypeFixed="true"/>
+                <expression xmi:type="expression:Expression" xmi:id="_rImCw3bFEeu6pOaWgrSVcw" name="&lt;pattern-expression>" content="&lt;p>Hello,&lt;/p>&#xA;&#xA;&lt;p>&amp;nbsp;&lt;/p>&#xA;&#xA;&lt;p>You find attached &lt;strong>${employeeReview.getEmployeesFullName().toString()}&lt;/strong>&amp;#39;s Summary Review.&lt;/p>&#xA;&#xA;&lt;p>&amp;nbsp;&lt;/p>&#xA;&#xA;&lt;p>Please feel free to reach out to you HR representative if you have any questions.&lt;/p>&#xA;&#xA;&lt;p>&amp;nbsp;&lt;/p>&#xA;&#xA;&lt;p>Kind regards,&lt;/p>&#xA;" type="TYPE_PATTERN" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_MhAdEIcSEeu0IZ0Pj2ZwTg" name="employeeReview.getEmployeesFullName().toString()" content="employeeReview.getEmployeesFullName().toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_MhAdEYcSEeu0IZ0Pj2ZwTg" name="employeeReview" content="employeeReview" type="TYPE_VARIABLE" returnType="com.company.model.Review">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_MhAdEocSEeu0IZ0Pj2ZwTg" name="employeeReview" dataType="_Hw2AFHD8EeugvpppLMSnYA" className="com.company.model.Review"/>
+                    </referencedElements>
+                  </referencedElements>
+                </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_rImCxHbFEeu6pOaWgrSVcw" key="headers">
                 <expression xmi:type="expression:TableExpression" xmi:id="_rImCxXbFEeu6pOaWgrSVcw"/>
@@ -1392,8 +1400,8 @@
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_rImCynbFEeu6pOaWgrSVcw" key="attachments">
                 <expression xmi:type="expression:ListExpression" xmi:id="_rImCy3bFEeu6pOaWgrSVcw">
-                  <expressions xmi:type="expression:Expression" xmi:id="_Px_E8INJEeuxf7ql8zKXWg" name="reviewDocument" content="reviewDocument" type="DOCUMENT_REF_TYPE">
-                    <referencedElements xmi:type="process:Document" xmi:id="_Px_E8YNJEeuxf7ql8zKXWg" name="reviewDocument"/>
+                  <expressions xmi:type="expression:Expression" xmi:id="_U8dgEIcKEeu0IZ0Pj2ZwTg" name="reviewDocument" content="reviewDocument" type="TYPE_DOCUMENT" returnType="org.bonitasoft.engine.bpm.document.Document">
+                    <referencedElements xmi:type="process:Document" xmi:id="_U8dgEYcKEeu0IZ0Pj2ZwTg" name="reviewDocument"/>
                   </expressions>
                 </expression>
               </parameters>
@@ -1579,10 +1587,10 @@
       <parameters xmi:type="parameter:Parameter" xmi:id="_MfeCoHEyEeu6FtDbRFF2SA" name="portHost" typeClassname="java.lang.Integer"/>
       <parameters xmi:type="parameter:Parameter" xmi:id="_RDqmkHEyEeu6FtDbRFF2SA" name="noreplyEmail" typeClassname="java.lang.String"/>
       <contract xmi:type="process:Contract" xmi:id="_Hw1__HD8EeugvpppLMSnYA"/>
-      <documents xmi:type="process:Document" xmi:id="_eT650INIEeuxf7ql8zKXWg" name="reviewDocument" defaultValueIdOfDocumentStore="ReviewDocument.docx" documentType="INTERNAL">
-        <mimeType xmi:type="expression:Expression" xmi:id="_eT650YNIEeuxf7ql8zKXWg" name="" content="" returnTypeFixed="true"/>
-        <url xmi:type="expression:Expression" xmi:id="_eT650oNIEeuxf7ql8zKXWg" name="" content="" returnTypeFixed="true"/>
-        <initialMultipleContent xmi:type="expression:Expression" xmi:id="_eT6504NIEeuxf7ql8zKXWg" name="" content="" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List" returnTypeFixed="true"/>
+      <documents xmi:type="process:Document" xmi:id="_K8LG4IcKEeu0IZ0Pj2ZwTg" name="reviewDocument" defaultValueIdOfDocumentStore="ReviewDocument.docx" documentType="INTERNAL">
+        <mimeType xmi:type="expression:Expression" xmi:id="_K8LG4YcKEeu0IZ0Pj2ZwTg" name="" content="" returnTypeFixed="true"/>
+        <url xmi:type="expression:Expression" xmi:id="_K8LG4ocKEeu0IZ0Pj2ZwTg" name="" content="" returnTypeFixed="true"/>
+        <initialMultipleContent xmi:type="expression:Expression" xmi:id="_K8LG44cKEeu0IZ0Pj2ZwTg" name="" content="" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List" returnTypeFixed="true"/>
       </documents>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_Hw1__XD8EeugvpppLMSnYA">
         <name xmi:type="expression:Expression" xmi:id="_Hw1__nD8EeugvpppLMSnYA" content="" returnTypeFixed="true"/>
@@ -1832,7 +1840,7 @@
           <children xmi:type="notation:DecorationNode" xmi:id="_1PXDoIBPEeuy391WD8wb8g" type="5024">
             <layoutConstraint xmi:type="notation:Location" xmi:id="_1PXDoYBPEeuy391WD8wb8g" y="5"/>
           </children>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1PWckIBPEeuy391WD8wb8g" x="140" y="117"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1PWckIBPEeuy391WD8wb8g" x="140" y="110"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_0w9WSIGVEeuRAM6ho8e4zQ" type="3027" element="_0w66AIGVEeuRAM6ho8e4zQ" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
           <children xmi:type="notation:DecorationNode" xmi:id="_0w99UIGVEeuRAM6ho8e4zQ" type="5017"/>

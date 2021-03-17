@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0" productVersion="7.12.1">
+    <businessObjects>
+        <businessObject qualifiedName="com.company.model.Review">
+            <fields>
+                <field type="TEXT" length="512" name="accomplishmentsEmployee" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="accomplishmentsManager" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="areasOfImprovementEmployee" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="areasOfImprovementManager" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="transparencyValueEmployee" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="transparencyValueManager" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="collaborationValueEmployee" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="collaborationValueManager" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="excellenceValueEmployee" nullable="true" collection="false">
+                    <description></description>
+                </field>
+                <field type="TEXT" length="512" name="excellenceValueManager" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="trainingEmployee" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="trainingManager" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="summaryEmployee" nullable="true" collection="false"/>
+                <field type="TEXT" length="512" name="summaryManager" nullable="true" collection="false"/>
+                <field type="OFFSETDATETIME" length="255" name="reviewSubmissionEmployeeDate" nullable="true" collection="false"/>
+                <field type="OFFSETDATETIME" length="255" name="reviewSubmissionManagerDate" nullable="true" collection="false"/>
+                <field type="OFFSETDATETIME" length="255" name="reviewValidationHRDate" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="reviewValidationHR" nullable="true" collection="false"/>
+                <field type="TEXT" length="255" name="reviewValidationHRRemarks" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="employeesFullName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="managersFullName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="employeesEmail" nullable="true" collection="false"/>
+                <field type="STRING" length="64" name="managersEmail" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="hrValidatorsEmail" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="hrsValidatorsFullname" nullable="true" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.company.model.ReviewHR" fetchType="EAGER" name="reviewHR" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.ReviewHR">
+            <fields>
+                <field type="STRING" length="255" name="reviewTitle" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="reviewEmailTitle" nullable="true" collection="false"/>
+                <field type="TEXT" length="255" name="reviewEmailContent" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="reviewStartDate" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="reviewEndDate" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="hrFullname" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="hrEmail" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries>
+                <query name="findLatestReviewHR" content="SELECT r&#13;&#10;FROM ReviewHR r &#13;&#10;WHERE r.persistenceId  = (SELECT max(r.persistenceId) FROM ReviewHR r)" returnType="com.company.model.ReviewHR">
+                    <queryParameters/>
+                </query>
+            </queries>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>
