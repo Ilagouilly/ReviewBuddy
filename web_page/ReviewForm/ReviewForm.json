@@ -2,7 +2,7 @@
   "modelVersion" : "2.0",
   "id" : "ReviewForm",
   "name" : "ReviewForm",
-  "lastUpdate" : 1615978720359,
+  "lastUpdate" : 1617020553875,
   "rows" : [
     [
       {
@@ -862,7 +862,7 @@
                         "xs" : 12,
                         "sm" : 12,
                         "md" : 6,
-                        "lg" : 4
+                        "lg" : 6
                       },
                       "propertyValues" : {
                         "cssClasses" : {
@@ -920,7 +920,7 @@
                         "xs" : 12,
                         "sm" : 12,
                         "md" : 6,
-                        "lg" : 4
+                        "lg" : 6
                       },
                       "propertyValues" : {
                         "cssClasses" : {
@@ -1242,7 +1242,7 @@
                         "xs" : 12,
                         "sm" : 12,
                         "md" : 6,
-                        "lg" : 4
+                        "lg" : 6
                       },
                       "propertyValues" : {
                         "cssClasses" : {
@@ -1300,7 +1300,7 @@
                         "xs" : 12,
                         "sm" : 12,
                         "md" : 6,
-                        "lg" : 4
+                        "lg" : 6
                       },
                       "propertyValues" : {
                         "cssClasses" : {
@@ -1550,7 +1550,7 @@
                         "xs" : 12,
                         "sm" : 12,
                         "md" : 6,
-                        "lg" : 4
+                        "lg" : 6
                       },
                       "propertyValues" : {
                         "cssClasses" : {
@@ -1640,7 +1640,7 @@
                         "xs" : 12,
                         "sm" : 12,
                         "md" : 6,
-                        "lg" : 4
+                        "lg" : 6
                       },
                       "propertyValues" : {
                         "cssClasses" : {
@@ -1792,10 +1792,10 @@
               {
                 "type" : "component",
                 "dimension" : {
-                  "xs" : 12,
-                  "sm" : 12,
+                  "xs" : 6,
+                  "sm" : 6,
                   "md" : 6,
-                  "lg" : 4
+                  "lg" : 6
                 },
                 "propertyValues" : {
                   "cssClasses" : {
@@ -1882,10 +1882,10 @@
               {
                 "type" : "component",
                 "dimension" : {
-                  "xs" : 12,
-                  "sm" : 12,
+                  "xs" : 6,
+                  "sm" : 6,
                   "md" : 6,
-                  "lg" : 4
+                  "lg" : 6
                 },
                 "propertyValues" : {
                   "cssClasses" : {

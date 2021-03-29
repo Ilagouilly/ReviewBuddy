@@ -1647,10 +1647,14 @@
         <connectors xmi:type="process:Connector" xmi:id="_dC56oIGXEeuRAM6ho8e4zQ" name="reviewHrNotification" definitionId="email" event="ON_FINISH" throwErrorEvent="true" namedError="reviewEmailNotificationError" definitionVersion="1.2.0">
           <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_dC56oYGXEeuRAM6ho8e4zQ" definitionId="email" version="1.2.0" modelVersion="7.12.0-004">
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_dC56ooGXEeuRAM6ho8e4zQ" key="smtpHost">
-              <expression xmi:type="expression:Expression" xmi:id="_dC56o4GXEeuRAM6ho8e4zQ" name="smtp.mailtrap.io" content="smtp.mailtrap.io" interpreter="GROOVY" returnTypeFixed="true"/>
+              <expression xmi:type="expression:Expression" xmi:id="_dC56o4GXEeuRAM6ho8e4zQ" name="mailHost" content="mailHost" interpreter="GROOVY" type="TYPE_PARAMETER" returnTypeFixed="true">
+                <referencedElements xmi:type="parameter:Parameter" xmi:id="_PbQf8JCPEeu1Jq8vINLYqQ" name="mailHost" typeClassname="java.lang.String"/>
+              </expression>
             </parameters>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_dC56pIGXEeuRAM6ho8e4zQ" key="smtpPort">
-              <expression xmi:type="expression:Expression" xmi:id="_dC56pYGXEeuRAM6ho8e4zQ" name="2525" content="2525" interpreter="GROOVY" returnType="java.lang.Integer" returnTypeFixed="true"/>
+              <expression xmi:type="expression:Expression" xmi:id="_dC56pYGXEeuRAM6ho8e4zQ" name="portHost" content="portHost" interpreter="GROOVY" type="TYPE_PARAMETER" returnType="java.lang.Integer" returnTypeFixed="true">
+                <referencedElements xmi:type="parameter:Parameter" xmi:id="_PbQf8ZCPEeu1Jq8vINLYqQ" name="portHost" typeClassname="java.lang.Integer"/>
+              </expression>
             </parameters>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_dC56poGXEeuRAM6ho8e4zQ" key="sslSupport">
               <expression xmi:type="expression:Expression" xmi:id="_dC56p4GXEeuRAM6ho8e4zQ" name="false" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
@@ -1662,10 +1666,10 @@
               <expression xmi:type="expression:Expression" xmi:id="_dC56q4GXEeuRAM6ho8e4zQ" name="false" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
             </parameters>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_dC56rIGXEeuRAM6ho8e4zQ" key="userName">
-              <expression xmi:type="expression:Expression" xmi:id="_dC56rYGXEeuRAM6ho8e4zQ" name="6b9963155f15de" content="6b9963155f15de" interpreter="GROOVY" returnTypeFixed="true"/>
+              <expression xmi:type="expression:Expression" xmi:id="_dC56rYGXEeuRAM6ho8e4zQ" name="" content="" interpreter="GROOVY" returnTypeFixed="true"/>
             </parameters>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_dC56roGXEeuRAM6ho8e4zQ" key="password">
-              <expression xmi:type="expression:Expression" xmi:id="_dC56r4GXEeuRAM6ho8e4zQ" name="3a3ca56514d477" content="3a3ca56514d477" interpreter="GROOVY" returnTypeFixed="true"/>
+              <expression xmi:type="expression:Expression" xmi:id="_dC56r4GXEeuRAM6ho8e4zQ" name="" content="" interpreter="GROOVY" returnTypeFixed="true"/>
             </parameters>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_dC56sIGXEeuRAM6ho8e4zQ" key="from">
               <expression xmi:type="expression:Expression" xmi:id="_dC56sYGXEeuRAM6ho8e4zQ" name="hrEmail" content="hrEmail" interpreter="GROOVY" type="TYPE_PARAMETER" returnTypeFixed="true">
