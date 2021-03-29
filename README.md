@@ -31,4 +31,8 @@ Definitly! All you'll need is to download the latest version of Bonita Community
 
 Of course, please don't hesitate pushing any PRs that you feel they could help the community.
 
+Also for more in-depth information, please feel free to check this article on my blog:
+
+https://www.blog.ismaillagouilly.com/reviewbuddy-bpm-review-process-automation/
+
 Enjoy! :wink:
