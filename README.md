@@ -1,5 +1,6 @@
-# ReviewBuddy (Bonita Community Edition: 2021.1)
+# 🚀 ReviewBuddy (Bonita Community Edition: 2021.1)
 
+![Bonita BPM](https://img.shields.io/badge/Bonita-BPM-blue?style=for-the-badge&logo=bonita)  ![License](https://img.shields.io/github/license/Ilagouilly/ReviewBuddy?style=for-the-badge)
 
 ## What's ReviewBuddy?
 
@@ -31,6 +32,12 @@ Definitly! All you'll need is to download the latest version of Bonita Community
 
 Of course, please don't hesitate pushing any PRs that you feel they could help the community.
 
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/NetworkingInnovation`)
+3. Commit your changes (`git commit -m 'Add intelligent matching algorithm'`)
+4. Push to the branch (`git push origin dev/NetworkingInnovation`)
+5. Open a Pull Request
+6. 
 Also for more in-depth information, please feel free to check this article on my blog:
 
 https://www.blog.ismaillagouilly.com/reviewbuddy-bpm-review-process-automation/
